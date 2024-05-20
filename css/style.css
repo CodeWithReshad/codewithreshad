@@ -241,7 +241,7 @@ header hr {
 .home {
   position: relative;
   max-width: 1250px;
-  min-width: 100vh;
+  /* min-width: 100vh; */
   min-height: 90vh;
   margin-left: auto;
   margin-right: auto;
@@ -376,7 +376,7 @@ header hr {
 .section {
   position: relative;
   max-width: 1150px;
-  min-width: 100vh;
+  /* min-width: 100vh; */
   margin-left: auto;
   margin-right: auto;
   padding: 6rem 2rem 2rem;
