@@ -241,12 +241,13 @@ header hr {
 .home {
   position: relative;
   max-width: 1250px;
-  /* min-width: 1120px; */
+  min-width: 100vh;
   min-height: 90vh;
   margin-left: auto;
   margin-right: auto;
   padding-top: 3rem;
   padding-left: 2rem;
+  padding-right: 2rem;
   flex-direction: column;
 }
 
@@ -375,6 +376,7 @@ header hr {
 .section {
   position: relative;
   max-width: 1150px;
+  min-width: 100vh;
   margin-left: auto;
   margin-right: auto;
   padding: 6rem 2rem 2rem;
@@ -1169,7 +1171,7 @@ header hr {
     display: flex;
     justify-content: center;
     align-items: center;
-/*     background: var(--transparent-color-01); */
+    /* background: var(--transparent-color-01); */
     visibility: hidden;
     opacity: 0;
     transition: .3s ease;
@@ -1230,10 +1232,9 @@ header hr {
   }
 
   /* =======Home section======= */
-  .home {
-    /* padding: 0 0; */
+  /* .home {
     min-height: 70vh;
-  }
+  } */
 
   .home .home-container .info {
     font-size: 0.8em;
