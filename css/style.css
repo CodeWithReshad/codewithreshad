@@ -380,6 +380,8 @@ header hr {
   margin-left: auto;
   margin-right: auto;
   padding: 6rem 2rem 2rem;
+  /* display: flex;
+  justify-content: center; */
 }
 
 .sub-section {
@@ -770,6 +772,7 @@ header hr {
   right: 0;
   margin-top: 15px;
   margin-right: 20px;
+  font-size: 25px;
   cursor: pointer;
 }
 
@@ -899,6 +902,7 @@ header hr {
   right: 0;
   margin-top: 15px;
   margin-right: 20px;
+  font-size: 25px;
   cursor: pointer;
 }
 
@@ -1085,12 +1089,15 @@ header hr {
   right: 0;
   margin-top: 15px;
   margin-right: 20px;
+  font-size: 25px;
   cursor: pointer;
 }
 
 .contact-modal-body h3 {
   font-size: 1.8em;
   font-weight: 500;
+  margin: 10px 20px;
+  text-align: center;
 }
 
 /* =======Footer======= */
@@ -1135,8 +1142,8 @@ header hr {
 }
 
 .footer-container .footer-left .img {
-  width: 45px;
-  height: 45px;
+  width: 55px;
+  height: 55px;
   border: 0.5px solid black;
   border-radius: 50%;
   overflow: hidden;
@@ -1210,12 +1217,12 @@ header hr {
     position: absolute;
     background: url("../images/close-btn.png")no-repeat;
     filter: var(--color-filter);
-    background-size: 12px;
+    background-size: 17px;
     background-position: center;
     width: 40px;
     height: 40px;
     top: 0;
-    right: 0;
+    /* right: 0; */
     margin: 10px;
     cursor: pointer;
   }
@@ -1296,13 +1303,13 @@ header hr {
   }
 
   /* =======Theme Btn======= */
-  .theme-btn {
+  /* .theme-btn {
     right: 110px;
     top: 15px;
     backdrop-filter: blur(20px);
     border-radius: 5px;
     box-shadow: none;
-  }
+  } */
 }
 
 /* =======Media query max-width 730px======= */
@@ -1322,7 +1329,16 @@ header hr {
     transform: translateY(-65px);
   }
 
-  /* =======Home section======= */
+  /* =======About section======= */
+  .home {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* =======About section======= */
+  .about-img img {
+    height: unset;
+  }
 
   /* =======Get-in-touch section======= */
   .get-in-touch .contact-card {
@@ -1340,11 +1356,6 @@ header hr {
 }
 
 @media screen and (max-width: 790px) {
-  .footer-container .footer-left .img {
-    width: 35px;
-    height: 35px;
-  }
-
   .footer-container .footer-left .footer-info h3 {
     font-size: 1.1em;
   }
@@ -1361,5 +1372,63 @@ header hr {
     display: flex;
     gap: 15px;
     font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .about {
+    display: flex;
+    justify-content: center;
+  }
+
+  .skills {
+    display: flex;
+    justify-content: center;
+  }
+
+  .services {
+    display: flex;
+    justify-content: center;
+  }
+
+  .projects {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .section-title-01 {
+    font-size: 2.6em;
+  }
+
+  .section-title-02 {
+    font-size: 1.7em;
+  }
+
+  .contact-card .title h2 {
+    font-size: 3.4em;
+  }
+}
+
+@media screen and (max-width: 555px) {
+  .footer-container {
+    flex-direction: column;
+  }
+
+  .footer-container .footer-left {
+    flex-direction: column;
+  }
+
+  .footer-container .footer-left .footer-info {
+    flex-direction: column;
+  }
+
+  .footer-container .footer-left .footer-info .pipe {
+    display: none;
+  }
+
+  .footer-container .footer-left .footer-info span {
+    margin: 20px 0;
+    text-align: center;
   }
 }
