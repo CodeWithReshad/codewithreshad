@@ -238,17 +238,17 @@ navItems.forEach((navItem) => {
 // Common reveal options to create reveal animations
 ScrollReveal({
     reset: false,
-    distance: '60px',
-    duration: 2500,
-    delay: 100
+    distance: '30px',
+    duration: 25,
+    delay: 1
 });
 
 // Target elements, and specify options to create reveal animations
-ScrollReveal().reveal('.home .info h2, .section-title-01, .section-title-02', { delay:1, origin:'left' });
-ScrollReveal().reveal('.home .info .moving-letter h3, .home .info p, .about-info .btn', { delay:1, origin:'right' });
-ScrollReveal().reveal('.home .info .btn', { delay:10, origin:'bottom' });
-ScrollReveal().reveal('.media-icons i', { delay:10, origin:'left', interval:200 });
-ScrollReveal().reveal('.home-img, .about-img', { delay:10, origin:'top' });
-ScrollReveal().reveal('.about .description, .about .professional-list li', { delay:10, origin:'right', interval:200 });
-ScrollReveal().reveal('.skills-description, .services-description, .contact-card, .client-swiper', { delay:10, origin:'left' });
-ScrollReveal().reveal('.experience-card, .service-card, .education, .img-card', { delay:10, origin:'bottom', interval: 200 });
+ScrollReveal().reveal('.home .info h2, .section-title-01, .section-title-02', { delay:0, origin:'left' });
+ScrollReveal().reveal('.home .info .moving-letter h3, .home .info p, .about-info .btn', { delay:0, origin:'right' });
+ScrollReveal().reveal('.home .info .btn', { delay:0, origin:'bottom' });
+ScrollReveal().reveal('.media-icons i', { delay:0, origin:'left', interval:200 });
+ScrollReveal().reveal('.home-img, .about-img', { delay:0, origin:'top' });
+ScrollReveal().reveal('.about .description, .about .professional-list li', { delay:0, origin:'right', interval:200 });
+ScrollReveal().reveal('.skills-description, .services-description, .contact-card, .client-swiper', { delay:0, origin:'left' });
+ScrollReveal().reveal('.experience-card, .service-card, .education, .img-card', { delay:0, origin:'bottom', interval: 200 });
