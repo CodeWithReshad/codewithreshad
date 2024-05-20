@@ -1169,7 +1169,7 @@ header hr {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--transparent-color-01);
+/*     background: var(--transparent-color-01); */
     visibility: hidden;
     opacity: 0;
     transition: .3s ease;
