@@ -5,6 +5,120 @@ window.addEventListener("scroll", () => {
 })
 
 
+// Scroll reveal animations
+// Common reveal options to create reveal animations
+ScrollReveal({
+    reset: false,
+    distance: '60px',
+    duration: 2500,
+    delay: 100
+});
+
+// Target elements, and specify options to create reveal animations
+ScrollReveal().reveal('.home .info h2, .section-title-01, .section-title-02', { delay:1, origin:'left' });
+ScrollReveal().reveal('.home .info .moving-letter h3, .home .info p, .about-info .btn', { delay:1, origin:'right' });
+ScrollReveal().reveal('.home .info .btn', { delay:10, origin:'bottom' });
+ScrollReveal().reveal('.media-icons i', { delay:10, origin:'left', interval:200 });
+ScrollReveal().reveal('.home-img, .about-img', { delay:10, origin:'top' });
+ScrollReveal().reveal('.about .description, .about .professional-list li', { delay:10, origin:'right', interval:200 });
+ScrollReveal().reveal('.skills-description, .services-description, .contact-card, .client-swiper', { delay:10, origin:'left' });
+ScrollReveal().reveal('.experience-card, .service-card, .education, .img-card', { delay:10, origin:'bottom', interval: 200 });
+
+
+// Setup and start animation
+let animateSkillsTyped = new Typed('#animate-skills', {
+    strings: ['Front-end Developer', 'Software Developer', 'Computer Vision Eng'],
+    typeSpeed: 10,
+    startDelay: 500,
+    backSpeed: 30,
+    backDelay: 800,
+    smartBackspace: true,
+    shuffle: false,
+    loop: true,
+    loopCount: Infinity,
+});
+let animateNameTyped = new Typed('#animate-name', {
+    strings: ['CodeWithReshad'],
+    typeSpeed: 0,
+    showCursor: false,
+});
+
+
+// Website dark/light theme
+let themeBtn = document.querySelector(".theme-btn");
+themeBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-theme");
+    themeBtn.classList.toggle("sun");
+
+    localStorage.setItem("saved-theme", getCurrentTheme());
+    localStorage.setItem("saved-icon", getCurrentIcon());
+})
+
+let getCurrentTheme = () => document.body.classList.contains("dark-theme") ? "dark" : "light";
+let getCurrentIcon = () => themeBtn.classList.contains("sun") ? "sun" : "moon";
+
+let savedTheme = localStorage.getItem("saved-theme");
+let savedIcon = localStorage.getItem("saved-icon");
+
+if (savedTheme) {
+    document.body.classList[savedTheme === "dark" ? "add" : "remove"]("dark-theme");
+    themeBtn.classList[savedIcon === "sun" ? "add" : "remove"]("sun");
+}
+
+
+// Responsive navigation menu toggle
+let menuBtn = document.querySelector(".nav-menu-btn");
+let closeBtn = document.querySelector(".nav-close-btn");
+let navigation = document.querySelector(".navigation");
+let navItems = document.querySelectorAll(".nav-items a");
+
+menuBtn.addEventListener("click", () => {
+    navigation.classList.add("active");
+})
+
+closeBtn.addEventListener("click", () => {
+    navigation.classList.remove("active");
+})
+
+navItems.forEach((navItem) => {
+    navItem.addEventListener("click", () => {
+        navigation.classList.remove("active");
+    })
+})
+
+
+// Function to highlight active navigation item on scroll
+function highlightNavItemOnScroll() {
+    let sections = document.querySelectorAll("section");
+    let scrollY = window.scrollY;
+
+    sections.forEach(current => {
+        let sectionHeight = current.offsetHeight;
+        let sectionTop = current.offsetTop - 50; // Adjust the offset if necessary
+        let id = current.getAttribute("id");
+
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+            document.querySelector(`.nav-items a[href*="${id}"]`).classList.add("active");
+        } else {
+            document.querySelector(`.nav-items a[href*="${id}"]`).classList.remove("active");
+        }
+    });
+}
+window.addEventListener("scroll", highlightNavItemOnScroll);
+
+
+// Scroll to top button
+let scrollTopBtn = document.querySelector(".scroll-to-top-btn");
+window.addEventListener("scroll", () => {
+    scrollTopBtn.classList.toggle("active", window.scrollY > 500);
+})
+
+scrollTopBtn.addEventListener("click", () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+})
+
+
 // Services section - Modal
 let serviceModals = document.querySelectorAll(".service-modal");
 let learnMoreBtns = document.querySelectorAll(".learn-more-btn");
@@ -117,138 +231,3 @@ let swiper = new Swiper(".client-swiper", {
     mousewheel: true,
     keyboard: true,
 });
-
-
-// Setup and start animation
-let animateSkillsTyped = new Typed('#animate-skills', {
-    strings: ['Front-end Developer', 'Software Developer', 'Computer Vision Eng'],
-    typeSpeed: 10,
-    startDelay: 500,
-    backSpeed: 30,
-    backDelay: 800,
-    smartBackspace: true,
-    shuffle: false,
-    loop: true,
-    loopCount: Infinity,
-});
-let animateNameTyped = new Typed('#animate-name', {
-    strings: ['CodeWithReshad'],
-    typeSpeed: 0,
-    showCursor: false,
-});
-
-
-// Website dark/light theme
-let themeBtn = document.querySelector(".theme-btn");
-themeBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark-theme");
-    themeBtn.classList.toggle("sun");
-
-    localStorage.setItem("saved-theme", getCurrentTheme());
-    localStorage.setItem("saved-icon", getCurrentIcon());
-})
-
-let getCurrentTheme = () => document.body.classList.contains("dark-theme") ? "dark" : "light";
-let getCurrentIcon = () => themeBtn.classList.contains("sun") ? "sun" : "moon";
-
-let savedTheme = localStorage.getItem("saved-theme");
-let savedIcon = localStorage.getItem("saved-icon");
-
-if (savedTheme) {
-    document.body.classList[savedTheme === "dark" ? "add" : "remove"]("dark-theme");
-    themeBtn.classList[savedIcon === "sun" ? "add" : "remove"]("sun");
-}
-
-
-// Scroll to top button
-let scrollTopBtn = document.querySelector(".scroll-to-top-btn");
-window.addEventListener("scroll", () => {
-    scrollTopBtn.classList.toggle("active", window.scrollY > 500);
-})
-
-scrollTopBtn.addEventListener("click", () => {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-})
-
-
-// Navigation menu items active on page scroll
-// window.addEventListener("scroll", () => {
-//     let sections = document.querySelectorAll("section");
-//     // let scrollY = window.pageYOffset;
-//     let scrollY = window.scrollY;
-
-//     sections.forEach(current => {
-//         let sectionHeight = current.sectionHeight;
-//         let sectionTop = current.offsetTop - 50;
-//         let id = current.getAttribute("id");
-
-//         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-//             document.querySelector(".nav-items a[href*=" + id + "]").classList.add("active");
-//         }
-//         else {
-//             document.querySelector(".nav-items a[href*=" + id + "]").classList.remove("active");
-//         }
-//     })
-// })
-
-
-// Function to highlight active navigation item on scroll
-function highlightNavItemOnScroll() {
-    let sections = document.querySelectorAll("section");
-    let scrollY = window.scrollY;
-
-    sections.forEach(current => {
-        let sectionHeight = current.offsetHeight;
-        let sectionTop = current.offsetTop - 50; // Adjust the offset if necessary
-        let id = current.getAttribute("id");
-
-        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-            document.querySelector(`.nav-items a[href*="${id}"]`).classList.add("active");
-        } else {
-            document.querySelector(`.nav-items a[href*="${id}"]`).classList.remove("active");
-        }
-    });
-}
-window.addEventListener("scroll", highlightNavItemOnScroll);
-
-
-// Responsive navigation menu toggle
-let menuBtn = document.querySelector(".nav-menu-btn");
-let closeBtn = document.querySelector(".nav-close-btn");
-let navigation = document.querySelector(".navigation");
-let navItems = document.querySelectorAll(".nav-items a");
-
-menuBtn.addEventListener("click", () => {
-    navigation.classList.add("active");
-})
-
-closeBtn.addEventListener("click", () => {
-    navigation.classList.remove("active");
-})
-
-navItems.forEach((navItem) => {
-    navItem.addEventListener("click", () => {
-        navigation.classList.remove("active");
-    })
-})
-
-
-// Scroll reveal animations
-// Common reveal options to create reveal animations
-ScrollReveal({
-    reset: false,
-    distance: '60px',
-    duration: 2500,
-    delay: 100
-});
-
-// Target elements, and specify options to create reveal animations
-ScrollReveal().reveal('.home .info h2, .section-title-01, .section-title-02', { delay:1, origin:'left' });
-ScrollReveal().reveal('.home .info .moving-letter h3, .home .info p, .about-info .btn', { delay:1, origin:'right' });
-ScrollReveal().reveal('.home .info .btn', { delay:10, origin:'bottom' });
-ScrollReveal().reveal('.media-icons i', { delay:10, origin:'left', interval:200 });
-ScrollReveal().reveal('.home-img, .about-img', { delay:10, origin:'top' });
-ScrollReveal().reveal('.about .description, .about .professional-list li', { delay:10, origin:'right', interval:200 });
-ScrollReveal().reveal('.skills-description, .services-description, .contact-card, .client-swiper', { delay:10, origin:'left' });
-ScrollReveal().reveal('.experience-card, .service-card, .education, .img-card', { delay:10, origin:'bottom', interval: 200 });
